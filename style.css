@@ -1,0 +1,331 @@
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+}
+
+body{
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Walter Turncoat", cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    height: 95vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1vh;
+}
+
+/*------------------------ ZONE DU PENDU / Clavier  -----------------*/
+#pendu-zone{
+    text-align: center;
+    height: 40vh;
+}
+
+#alphabet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px; 
+    margin: 1vh 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lettre {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    border: solid 2px;
+    font-size: 1.5rem;
+    font-family: "Walter Turncoat", cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lettre:hover {
+    background-color: #9caab3;
+    transform: scale(1.1);
+}
+.lettre.utilisee {
+    background-color:#8ef081;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.lettre.erreur{
+    background-color: #e74c3c;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.rangee-clavier {
+    display : flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+.rangee-clavier:nth-child(2){
+    margin-left: 50px;
+}
+
+/* --------------------Zone d'affichage en bas -----------------*/
+#info-zone {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#info-zone p {
+    font-size: 1.5rem;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+#compteur-erreurs {
+    color: #c0392b;
+    font-size: 1.8rem;
+}
+
+#mot-affiche {
+    font-size: 2rem;
+    letter-spacing: 15px;
+    font-family: "Walter Turncoat", cursive;
+    text-align: center;
+}
+
+#proposition-zone {
+    margin: 1vh 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+#proposition-mot {
+    padding: 5px;
+    font-size:1.2rem;
+    border: 2px solid #5db2d9;
+    border-radius: 8px;
+    font-family: "Walter Turncoat", cursive;
+    width: 300px;
+}
+#btn-valider {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 1.2rem;
+    font-family: "Walter Turncoat", cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#btn-valider:hover {
+    background-color: #229954;
+    transform: scale(1.05);
+}
+
+#btn-valider:active {
+    transform: scale(0.95);
+}
+#btn-rejouer{
+    background-color: rgb(210, 112, 48);
+    color:white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 1.2rem;
+    font-family:"Walter Turncoat", cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btn-rejouer:hover {
+    background-color: rgb(236, 106, 20);;
+    transform: scale(1.05);
+}
+
+#btn-rejouer:active {
+    transform: scale(0.95);
+}
+
+/* ------------------ Message de fin en pop up-----------------*/
+
+#message {
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 2vh 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#message.victoire {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#message.defaite {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.cache {
+    display: none;
+}
+
+/* ----------------------- Rendre le jeu responsive ---------------------------*/
+
+
+/* Tablettes */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    #mot-affiche {
+        font-size: 1.5rem;
+        letter-spacing: 10px;
+    }
+    
+    .lettre {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .rangee-clavier:nth-child(2) {
+        margin-left: 25px;    
+    }
+    
+    #pendu-zone {
+        height: 35vh;
+    }
+    
+    #pendu-svg {
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+/* Smartphones (petits écrans) */
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        justify-content: flex-start;
+        padding-top: 2vh;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 2vh;
+    }
+    
+    #pendu-zone {
+        height: 30vh;
+    }
+    
+    #pendu-svg {
+        max-width: 200px;
+        height: auto;
+    }
+    
+    #mot-affiche {
+        font-size: 1.2rem;
+        letter-spacing: 8px;
+    }
+    
+    .lettre {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+    
+    .rangee-clavier {
+        gap: 3px;
+        margin-bottom: 3px;
+    }
+    
+    .rangee-clavier:nth-child(2) {
+        margin-left: 15px;
+    }
+    
+    #alphabet {
+        max-width: 350px;
+    }
+    
+    #info-zone p {
+        font-size: 1.2rem;
+    }
+    
+    #compteur-erreurs {
+        font-size: 1.5rem;
+    }
+    
+    #proposition-zone {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #proposition-mot {
+        width: 250px;
+        font-size: 1rem;
+    }
+    
+    #btn-valider {
+        width: 250px;
+        font-size: 1rem;
+    }
+    
+    #btn-rejouer {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+    
+    #message {
+        font-size: 1.3rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Très petits écrans (moins de 360px) */
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .lettre {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+    
+    #alphabet {
+        max-width: 300px;
+    }
+}
+
+/* Grands écrans (desktop) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+    
+    #alphabet {
+        max-width: 700px;
+    }
+}

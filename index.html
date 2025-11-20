@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <link href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&amp;display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="style.css">
+
+            <title>Jeu du pendu</title>
+        </head>
+        <body>
+
+            <div class="container">
+                <h1>Jeu du Pendu</h1>
+                
+                <!-- Zone du dessin SVG -->
+                <div id="pendu-zone">
+                    <svg id="pendu-svg" width="300" height="400" viewBox="0 0 300 400">
+                
+                        <!-- Base de la potence -->
+                        <line x1="10" y1="280" x2="100" y2="280" stroke="black" stroke-width="4" stroke-linecap="round"/>
+                
+                        <!-- Poteau vertical -->
+                        <line x1="50" y1="280" x2="50" y2="50" stroke="black" stroke-width="4" stroke-linecap="round"/>
+                
+                        <!-- Barre horizontale -->
+                        <line x1="50" y1="50" x2="150" y2="50" stroke="black" stroke-width="4" stroke-linecap="round"/>
+                
+                        <!-- Corde -->
+                        <line x1="150" y1="50" x2="150" y2="100" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                
+                
+                <!-- PARTIES DU CORPS -->
+                
+                        <!-- Tête (erreur 1) -->
+                        <circle id="tete" cx="150" cy="115" r="15" fill="none" stroke="black" stroke-width="3" class="cache partie-pendu"/>
+                
+                        <!-- Corps (erreur 2) -->
+                        <line id="corps" x1="150" y1="130" x2="150" y2="200" stroke="black" stroke-width="3" stroke-linecap="round" class="cache partie-pendu"/>
+                
+                        <!-- Bras gauche (erreur 3) -->
+                        <line id="bras-gauche" x1="150" y1="140" x2="110" y2="150" stroke="black" stroke-width="3" stroke-linecap="round" class="cache partie-pendu"/>
+                
+                        <!-- Bras droit (erreur 4) -->
+                        <line id="bras-droit" x1="150" y1="140" x2="190" y2="150" stroke="black" stroke-width="3" stroke-linecap="round" class="cache partie-pendu"/>
+                
+                        <!-- Jambe gauche (erreur 5) -->
+                        <line id="jambe-gauche" x1="150" y1="200" x2="120" y2="240" stroke="black" stroke-width="3" stroke-linecap="round" class="cache partie-pendu"/>
+                
+                        <!-- Jambe droite (erreur 6) -->
+                        <line id="jambe-droite" x1="150" y1="200" x2="180" y2="240" stroke="black" stroke-width="3" stroke-linecap="round" class="cache partie-pendu"/>
+                
+                    </svg>
+                 </div>
+                
+                <!-- Affichage du mot à deviner -->
+                <div id="mot-zone">
+                    <p id="mot-affiche"></p>
+                </div>
+                
+                <!-- Compteur d'erreurs -->
+                <div id="info-zone">
+                    <p>Erreurs : <span id="compteur-erreurs">0</span> / 6</p>
+                </div>
+                
+                <!-- Alphabet cliquable -->
+                <div id="alphabet">
+                    <!-- Les lettres générées en JavaScript -->
+                </div>
+                
+                <!-- Bouton Valider -->
+                <div id="proposition-zone">
+                    <input type="text" id="proposition-mot" placeholder="Proposer un mot complet">
+                    <button id="btn-valider">Valider</button>
+               
+                <!-- Bouton rejouer (caché au début) -->    
+                    <button id="btn-rejouer" class="cache">Nouvelle partie</button>
+               </div>
+                <!-- Message de fin -->
+                    <p id="message" class="cache"></p>
+            </div>
+            
+           
+            <script src="app.js" type="module"></script>   
+        </body>
+    </html>
