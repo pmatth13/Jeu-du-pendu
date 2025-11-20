@@ -98,7 +98,7 @@ function proposerMot(){
         nbErreurs++;
         document.getElementById("compteur-erreurs").textContent = nbErreurs;
         dessinerPendu();
-        document.getAnimations("proposition-mot").value="";
+        document.getElementById("proposition-mot").value="";
         if (verifierDefaite()) {
             finDePartie(false);
         }
